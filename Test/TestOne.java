@@ -23,6 +23,15 @@ public class TestOne {
         }
     }
 
+    @Test
+    public void testsFilePresent() throws RuntimeException, IOException {
+        try {
+            System.out.println("====== Labdhi Jain == TEST THREE EXECUTED =======");
+            ReadInput readInputObj = new ReadInput("urinal.dat");
+        } catch (RuntimeException e) {
+            assert Objects.equals(e.getMessage(), "No Input File Present");
+        }
+    }
 
 
 
