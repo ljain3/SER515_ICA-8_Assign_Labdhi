@@ -14,7 +14,7 @@ import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.fail;
 
 public class TestOne {
-    public List<String> listOfOutputs = new ArrayList<String>();
+
     @Test
     public void testsValidInputs() throws IOException {
         System.out.println("====== Labdhi Jain == TEST ONE EXECUTED =======");
@@ -54,6 +54,8 @@ public class TestOne {
 
     @Test
     public void outputFileCheck() throws IOException {
+        List<String> listOfOutputs = new ArrayList<String>();
+        List<String> expectedOp = new ArrayList<String>();
         ReadInput readInputObj = new ReadInput("urinal.dat");
         try {
             System.out.println("====== Labdhi Jain == TEST FIVE EXECUTED =======");
@@ -69,10 +71,16 @@ public class TestOne {
                 String eachLine = sr.nextLine();
                 listOfOutputs.add(eachLine);
             }
-            assertEquals(readInputObj.writeString,listOfOutputs);
+            expectedOp.add("-1");
+            expectedOp.add("2");
+            expectedOp.add("0");
+            expectedOp.add("-1");
+            assertEquals(expectedOp,listOfOutputs);
         } catch (RuntimeException e) {
             e.printStackTrace();
         }
     }
+
+
 
 }
