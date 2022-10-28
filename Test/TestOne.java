@@ -80,7 +80,37 @@ public class TestOne {
             e.printStackTrace();
         }
     }
+    @Test
+    public void checkDupFile() throws IOException {
+        List<String> listOfOutputs = new ArrayList<String>();
+        List<String> expectedOp = new ArrayList<String>();
+        try {
+            System.out.println("====== Labdhi Jain == TEST SIX EXECUTED =======");
+            ReadInput readInputObj = new ReadInput("urinal.dat");
+            ReadInput readInputObj2 = new ReadInput("urinal.dat");
 
+                File opFile = new File("rule1.txt");
+                Scanner sr = null;
+                try{
+                    sr= new Scanner(new FileReader(opFile));
+
+                } catch (FileNotFoundException e){
+                    System.out.println(e);
+                }
+                while (sr.hasNextLine()){
+                    String eachLine = sr.nextLine();
+                    listOfOutputs.add(eachLine);
+                }
+                expectedOp.add("-1");
+                expectedOp.add("2");
+                expectedOp.add("0");
+                expectedOp.add("-1");
+                assertEquals(expectedOp,listOfOutputs);
+            assertEquals(listOfOutputs,expectedOp);
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 }
