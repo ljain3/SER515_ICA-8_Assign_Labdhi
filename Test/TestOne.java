@@ -89,28 +89,42 @@ public class TestOne {
             ReadInput readInputObj = new ReadInput("urinal.dat");
             ReadInput readInputObj2 = new ReadInput("urinal.dat");
 
-                File opFile = new File("rule1.txt");
-                Scanner sr = null;
-                try{
-                    sr= new Scanner(new FileReader(opFile));
+            File opFile = new File("rule1.txt");
+            Scanner sr = null;
+            try{
+                sr= new Scanner(new FileReader(opFile));
 
-                } catch (FileNotFoundException e){
-                    System.out.println(e);
-                }
-                while (sr.hasNextLine()){
-                    String eachLine = sr.nextLine();
-                    listOfOutputs.add(eachLine);
-                }
-                expectedOp.add("-1");
-                expectedOp.add("2");
-                expectedOp.add("0");
-                expectedOp.add("-1");
-                assertEquals(expectedOp,listOfOutputs);
-            assertEquals(listOfOutputs,expectedOp);
+            } catch (FileNotFoundException e){
+                System.out.println(e);
+            }
+            while (sr.hasNextLine()){
+                String eachLine = sr.nextLine();
+                listOfOutputs.add(eachLine);
+            }
+            expectedOp.add("-1");
+            expectedOp.add("2");
+            expectedOp.add("0");
+            expectedOp.add("-1");
+            assertEquals(expectedOp,listOfOutputs);
         } catch (RuntimeException e) {
             e.printStackTrace();
         }
     }
 
+    @Test
+    public void checkUrinalCount() throws IOException {
+        try {
+            System.out.println("====== Labdhi Jain == TEST SEVEN EXECUTED =======");
+            ReadInput readInputObj = new ReadInput("urinal.dat");
+            List<Integer> expectedCount = new ArrayList<Integer>();
+            expectedCount.add(-1);
+            expectedCount.add(2);
+            expectedCount.add(0);
+            expectedCount.add(-1);
+            assertEquals(expectedCount,readInputObj.listOfOutputs);
+        } catch (RuntimeException e){
+            e.printStackTrace();
+        }
+    }
 
 }
