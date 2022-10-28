@@ -34,5 +34,14 @@ public class TestOne {
     }
 
 
+    @Test
+    public void testFileNotPresent() throws IOException {
+        try {
+            System.out.println("====== Labdhi Jain == TEST FOUR EXECUTED =======");
+            ReadInput readInputObj = new ReadInput("urinal1.dat");
+        } catch (RuntimeException e) {
+            assert Objects.equals(e.getMessage(), "No Input File Present");
+        }
+    }
 
 }
