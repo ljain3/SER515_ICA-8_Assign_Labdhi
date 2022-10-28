@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class ReadInput {
     public List<String> listOfInputs = new ArrayList<String>();
     public List<Integer> listOfOutputs = new ArrayList<Integer>();
+    public List<String> writeString = new ArrayList<String>();
 
     ReadInput(String fileName) throws IOException {
         readInput(fileName);
@@ -84,6 +85,7 @@ public class ReadInput {
             }
             for (int k = 0; k < listOfOutputs.size(); k++) {
                 myWriter.write(listOfOutputs.get(k).toString() + "\n");
+                writeString.add(listOfOutputs.get(k).toString());
             }
             myWriter.close();
         } catch (IOException e) {
