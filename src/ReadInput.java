@@ -6,19 +6,20 @@ import java.util.Scanner;
 public class ReadInput {
     public List<String> listOfInputs = new ArrayList<String>();
     public List<Integer> listOfOutputs = new ArrayList<Integer>();
-    ReadInput(){
+    ReadInput() throws IOException {
 
         DataInputStream inputFile = null;
         try {
             inputFile = new DataInputStream(new FileInputStream(
                     "urinal.dat"));
-            while (inputFile.available() > 0) {
+            do {
                 String x = String.valueOf(inputFile.readLine());
+                if (!x.contains("0") && !x.contains("1")){
+                    throw new IOException("Invalid input");
+                }
                 listOfInputs.add(x);
-            }
+            } while (inputFile.available() > 0);
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
             throw new RuntimeException(e);
         }
         try {
